@@ -121,7 +121,7 @@ const Intialize = function () {
     function renderAlarms() {
         let localSt = localStorage.getItem('alarm_list');
         localSt = JSON.parse(localSt)
-        if (localSt.length > 0) {
+        if (localSt?.length > 0) {
             localSt.forEach(element => {
                 let date = new Date(element.alarm_time);
                 let time = getTime(date)
@@ -153,9 +153,9 @@ const Intialize = function () {
     function setAllAlarms() {
         let localSt = localStorage.getItem('alarm_list');
         localSt = JSON.parse(localSt);
-        if (localSt.length > 0) {
+        if (localSt?.length > 0) {
             localSt = localSt.filter(element => element.status == true);
-            if(localSt.length > 0) {
+            if(localSt?.length > 0) {
                 const current_time = new Date();
                 let differences = localSt.map(element => {
                     let alarmDate = new Date(element.alarm_time);
@@ -191,7 +191,7 @@ const Intialize = function () {
             if (id) {
                 let localSt = localStorage.getItem('alarm_list');
                 localSt = JSON.parse(localSt);
-                if (localSt.length > 0){
+                if (localSt?.length > 0){
                     localSt = localSt.filter(element => element.id != id);
                     localSt = localStorage.setItem('alarm_list', JSON.stringify(localSt));
                     alarm_ul.innerHTML = '';
